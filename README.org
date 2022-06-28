@@ -1,0 +1,12 @@
+#+title: reorg
+reorg is a bridge between emacs(org-mode) and the remarkable cloud.
+
+* Functions to define
++ [X] Device connection
++ [X] Device registration / getting bearer token
++ [ ] Token Refreshing ?
++ [X] Find storage API (skip)
++ [ ] Get item (Does not work at all)
++ [ ] Download item
++ [ ] Upload item
+  + [ ] org-to-pdf a document to upload (maybe docx?)
