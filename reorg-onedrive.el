@@ -34,7 +34,6 @@
 ;; this will be one hell of a hack
 
 
-(tramp-rclone-send-command "reorg" "ls")
 
 
 
@@ -57,13 +56,34 @@
   )
 
 
+(defun clean-file-name (name)
+  
+  )
+
+
+(clean-file-name "Firmad 1 4.pdg")
+
+(defun rclone-sync-file (file)
+  (interactive)
+  (let ((destintion (read-directory-name "Enter Destination Directory: ")))
+    (progn
+      (shell-command (concat "rclone sync reorg:/reorg/\"" file "\" " destintion))) 
+  ))
+
+
 (defun reorg-onedrive/download-file ()
   (interactive)
-  
   (let ((choices (reorg-onedrive/list-files)))
-  (message "%s" (completing-read "Select File:" choices ))
+    (let ((file-to-download (completing-read "Select File:" choices )))
+      ;; now download
+      (progn
+        (message file-to-download)
+        (rclone-sync-file file-to-download)
+        )
+      )
   ))
   
+
 
 (provide 'reorg-onedrive)
 

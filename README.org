@@ -18,3 +18,7 @@ I am starting to get a bit annoyed by the rm cloud, so lets find a way to go aro
 + rclone
 + OneDrive
 + Paid Remarkable Cloud
+
+** Setup
+1. Create a =reorg= folder in the root of your one-drive.
+2. Setup rclone with this guide
