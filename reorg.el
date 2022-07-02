@@ -44,6 +44,7 @@
 
 (defun reorg/connect-device ()
   (interactive)
+  ;; TODO make into let 
   (setq reorg-connection-url "https://webapp-production-dot-remarkable-production.appspot.com/token/json/2/device/new"
         reorg-connection-payload-string (concat
     "{\"code\": \"" reorg-device-code "\",
@@ -58,6 +59,10 @@
               (lambda (&key data &allow-other-keys)
                 (message "I got: %S" data)
                 (setq reorg-bearer-token data)))
+
+    :error
+    (cl-function (lambda (&rest args &key error-thrown &allow-other-keys)
+                   (message "Got error: %S" error-thrown)))
     )
 
 
@@ -72,17 +77,11 @@
   :success (cl-function
             (lambda (&key data &allow-other-keys)
               (message "I got: %S" data)))
-
+  :error
+  (cl-function (lambda (&rest args &key error-thrown &allow-other-keys)
+                 (message "Got error: %S" error-thrown)))
   )
 
-(request "http://ptsv2.com/t/gww13-1656422434/post"
-         :type "POST"
-         ;; :data "key=value&key2=value2"  ;; this is equivalent
-         :data "Some body"
-         :parser 'buffer-string
-         :success (cl-function
-                   (lambda (&key data &allow-other-keys)
-                     (message "I got: %S" data))))
 
 (provide 'reorg)
 

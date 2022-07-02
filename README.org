@@ -10,3 +10,11 @@ reorg is a bridge between emacs(org-mode) and the remarkable cloud.
 + [ ] Download item
 + [ ] Upload item
   + [ ] org-to-pdf a document to upload (maybe docx?)
+
+* reorg-onedrive
+I am starting to get a bit annoyed by the rm cloud, so lets find a way to go around that with one-drive.
+
+** Dependencies
++ rclone
++ OneDrive
++ Paid Remarkable Cloud
