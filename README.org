@@ -1,7 +1,7 @@
 #+title: reorg
 reorg is a bridge between emacs(org-mode) and the remarkable cloud.
 
-* Functions to define
+* TODO reorg [3/7]
 + [X] Device connection
 + [X] Device registration / getting bearer token
 + [ ] Token Refreshing ?
@@ -11,8 +11,14 @@ reorg is a bridge between emacs(org-mode) and the remarkable cloud.
 + [ ] Upload item
   + [ ] org-to-pdf a document to upload (maybe docx?)
 
-* reorg-onedrive
+* TODO reorg-onedrive [4/5]
 I am starting to get a bit annoyed by the rm cloud, so lets find a way to go around that with one-drive.
+
++ [X] Get files list
++ [X] download file flow
++ [X] upload file flow
++ [X] org-upload flow
++ [ ] Delete file from cloud flow
 
 ** Dependencies
 + rclone

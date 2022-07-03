@@ -37,10 +37,6 @@
 
 
 
-(defun my-pick-one ()
-  "Prompt user to pick a choice from a list."
-  (interactive)
-  )
 
 
 (defun reorg-onedrive/list-files ()
@@ -56,13 +52,6 @@
   )
 
 
-(defun clean-file-name (name)
-  
-  )
-
-
-(clean-file-name "Firmad 1 4.pdg")
-
 (defun rclone-sync-file (file)
   (interactive)
   (let ((destintion (read-directory-name "Enter Destination Directory: ")))
@@ -70,11 +59,15 @@
       (shell-command (concat "rclone sync reorg:/reorg/\"" file "\" " destintion))) 
   ))
 
+(defun rclone-upload-file (file)
+  (interactive)
+  (shell-command (concat "rclone copy " file " reorg:/reorg/"))
+  )
 
 (defun reorg-onedrive/download-file ()
   (interactive)
   (let ((choices (reorg-onedrive/list-files)))
-    (let ((file-to-download (completing-read "Select File:" choices )))
+    (let ((file-to-download (completing-read "Select File [DOWNLOAD]:" choices )))
       ;; now download
       (progn
         (message file-to-download)
@@ -84,6 +77,28 @@
   ))
   
 
+(defun reorg-onedrive/upload-file ()
+  (interactive)
+  (let ((file-to-upload (read-file-name "Select File [UPLOAD]: ")))
+    (progn
+      (rclone-upload-file file-to-upload))))
+
+
+
+
+(defvar org-export-to-pdf-function 'org-latex-export-to-pdf)
+
+(defun reorg-onedrive/org-send-buffer-to-remarkable ()
+  (interactive)
+  (let ((current-buffer-mode (format "%s" major-mode)))
+    (if (equal current-buffer-mode "org-mode")
+        (progn
+          (let ((exported-pdf-file (org-export-to-pdf-function)))
+            (rclone-upload-file exported-pdf-file)))
+      (progn
+        (message "can only run in org-mode"))))
+  
+  )
 
 (provide 'reorg-onedrive)
 
