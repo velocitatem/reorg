@@ -1,35 +1,18 @@
-#+title: reorg
-reorg is a bridge between emacs(org-mode) and the remarkable cloud.
+#+title: reorg-onedrive
+reorg-onedrive is a bridge between emacs(org-mode) and the remarkable via OneDrive.
 
-* TODO reorg [3/7]
-+ [X] Device connection
-+ [X] Device registration / getting bearer token
-+ [ ] Token Refreshing ?
-+ [X] Find storage API (skip)
-+ [ ] Get item (Does not work at all)
-+ [ ] Download item
-+ [ ] Upload item
-  + [ ] org-to-pdf a document to upload (maybe docx?)
-
-* TODO reorg-onedrive [6/7]
-I am starting to get a bit annoyed by the rm cloud, so lets find a way to go around that with one-drive.
-
-+ [X] Get files list
-+ [X] download file flow
-+ [X] upload file flow
-+ [X] org-upload flow
-+ [ ] Delete file from cloud flow
-+ [X] Open file on download
-+ [X] List root directory and =/reorg=
-  + [X] When downloading, choose the right directory
-
-** Dependencies
+* Dependencies
 + rclone
 + OneDrive
 + Paid Remarkable Cloud
 
-** Setup
+* Installation 
 1. Create a =reorg= folder in the root of your one-drive.
-2. Setup rclone with this guide
+2. Setup rclone with a config called =reorg=
+#+begin_src bash
+rclone config
+#+end_src
+3. Add =(load "/home/velo/Documents/Projects/reorg/reorg-onedrive.el")= to your config.
+
 
 

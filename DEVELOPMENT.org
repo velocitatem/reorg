@@ -1,0 +1,19 @@
+* TODO reorg [3/7]
++ [X] Device connection
++ [X] Device registration / getting bearer token
++ [ ] Token Refreshing ?
++ [X] Find storage API (skip)
++ [ ] Get item (Does not work at all)
++ [ ] Download item
++ [ ] Upload item
+  + [ ] org-to-pdf a document to upload (maybe docx?)
+* TODO reorg-onedrive [6/7]
+I am starting to get a bit annoyed by the rm cloud, so lets find a way to go around that with one-drive.
++ [X] Get files list
++ [X] download file flow
++ [X] upload file flow
++ [X] org-upload flow
++ [ ] Delete file from cloud flow
++ [X] Open file on download
++ [X] List root directory and =/reorg=
+  + [X] When downloading, choose the right directory
