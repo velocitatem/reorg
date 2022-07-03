@@ -1,5 +1,7 @@
 #+title: reorg-onedrive
+[[./reorg.png]]
 reorg-onedrive is a bridge between emacs(org-mode) and the remarkable via OneDrive.
+
 
 * Dependencies
 + rclone
