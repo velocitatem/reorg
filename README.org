@@ -1,8 +1,7 @@
 #+title: reorg-onedrive
 [[./reorg.png]]
 
-reorg-onedrive is a bridge between emacs(org-mode) and the remarkable via OneDrive.
-
+reorg-onedrive is a bridge between emacs(org-mode) and the remarkable via OneDrive. A pure =reorg= is still in development due to difficulty with the API - this is best option for now.
 
 * Dependencies
 + rclone
@@ -17,5 +16,11 @@ rclone config
 #+end_src
 3. Add =(load "/home/velo/Documents/Projects/reorg/reorg-onedrive.el")= to your config.
 
-
+* Usage
+** Downloading Files
+You can easily download files from your OneDrive via =(reorg-onedrive/download-file)=. This will prompt you to choose a file from the list obtained using rclone.
+** Uploading Files
+You can upload any file with =(reorg-onedrive/upload-file)=.
+*** Org-mode
+Open up a =.org= file in a buffer and run =reorg-onedrive/org-send-buffer-to-remarkable=, or =reorg-onedrive/org-send-file-to-remarkable= to upload any file you select.
 

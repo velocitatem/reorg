@@ -2,8 +2,8 @@
 
 ;; Author: Daniel Rosel
 ;; Maintainer: Daniel Rosel
-;; Version: 0.1.0
-;; Package-Requires: (request)
+;; Version: 0.1.1
+;; Package-Requires: () 
 ;; Homepage: https://github.com/velocitatem/reorg
 ;; Keywords: org-mode emacs remarkable onedrive
 
