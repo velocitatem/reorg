@@ -14,7 +14,8 @@ reorg-onedrive is a bridge between emacs(org-mode) and the remarkable via OneDri
 #+begin_src bash
 rclone config
 #+end_src
-3. Add =(load "/home/velo/Documents/Projects/reorg/reorg-onedrive.el")= to your config.
+3. Get the latest release =.el= files
+4. Add =(load "/home/velo/Documents/Projects/reorg/reorg-onedrive.el")= to your config.
 
 * Usage
 ** Downloading Files
