@@ -35,6 +35,7 @@
 
 
 (defun reorg-onedrive/list-files ()
+  "Returns a list of files located at the root of the OneDrive directory as-well in the /reorg directory."
   (let ((files  (shell-command-to-string "rclone ls reorg:/reorg/")) ;; get both the root and /reorg
         (files-root (shell-command-to-string "rclone ls reorg:/ --max-depth 1"))
         (file-list (list)))
@@ -64,6 +65,7 @@
 (clean-file-name "Quick Sheets")
 
 (defun rclone-sync-file (file)
+  "Downloads a file from the cloud and saves it in a user specified directory."
   (interactive)
   (let ((destintion (read-directory-name "Enter Destination Directory: ")))
     (progn
@@ -74,12 +76,14 @@
 
 
 (defun rclone-upload-file (file)
+  "Uploads a file to the cloud /reorg directory"
   (interactive)
   (shell-command (concat "rclone copy " file " reorg:/reorg/"))
   )
 
 
 (defun reorg-onedrive/download-file ()
+  "Prompts a user to select a file from the cloud. File is then downloaded and open."
   (interactive)
   (let ((choices (reorg-onedrive/list-files)))
     (let ((file-to-download (completing-read "Select File [DOWNLOAD]:" choices )))
@@ -93,6 +97,7 @@
   
 
 (defun reorg-onedrive/upload-file ()
+  "Uploads a user specified file to the cloud."
   (interactive)
   (let ((file-to-upload (read-file-name "Select File [UPLOAD]: ")))
     (progn
@@ -101,9 +106,10 @@
 
 
 
-(defvar org-export-to-pdf-function 'org-latex-export-to-pdf)
+(defcustom org-export-to-pdf-function 'org-latex-export-to-pdf "The function used to convert the org-mode buffer to pdf. NOT IMPLEMENTED")
 
 (defun reorg-onedrive/org-send-buffer-to-remarkable ()
+  "Converts the current org buffer to a pdf and then uploads that pdf to the cloud."
   (interactive)
   (let ((current-buffer-mode (format "%s" major-mode)))
     (if (equal current-buffer-mode "org-mode")
@@ -116,6 +122,7 @@
   )
 
 (defun reorg-onedrive/org-send-file-to-remarkable ()
+  "Uploads a user specified cloud to the file"
   (interactive)
   (let ((file-to-open (read-file-name "Select File [UPLOAD]: ")))
     (org-open-file file-to-open)
